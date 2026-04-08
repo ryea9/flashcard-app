@@ -67,7 +67,6 @@ Students often need an easier way to keep their revision content organised and t
 - **package-lock.json** – records the exact installed dependency versions.
 - **README.md** – provides project documentation, setup instructions, and an overview of the application.
 - **.gitignore** – prevents unnecessary or sensitive files from being uploaded to GitHub.
-- **.env** – stores environment variables such as the database connection details and port number.
 
 ## Installation
 
