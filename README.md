@@ -58,7 +58,7 @@ Students often need an easier way to keep their revision content organised and t
   - **index.html** – contains the main page structure and all sections used by the single-page interface.
   - **script.js** – handles the front-end functionality, including adding, editing, deleting, and studying flashcards.
   - **style.css** – contains the main styling, layout, colours, and visual design of the website.
-  - **style-glass-palette.css** – contains additional or alternative styling experiments used during development.
+  - **style-glass-palette.css** – contains an alternative stylesheet developed during the design refinement process, featuring glass-style effects, gradients, shadows, and enhanced visual depth.
 
 - **db.js** – manages the MySQL database connection and creates the required tables.
 - **server.js** – runs the Express server and handles API routes for flashcard and set data.
