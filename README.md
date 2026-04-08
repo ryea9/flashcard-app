@@ -83,10 +83,11 @@ Students often need an easier way to keep their revision content organised and t
 
 ## Challenges Overcome
 
-One of the biggest challenges in this project was making the app behave like a true single-page application while still keeping the code simple and understandable. Instead of using multiple HTML pages, the interface had to switch between setup mode, study mode, and results mode dynamically with JavaScript while still feeling smooth and structured. :contentReference[oaicite:2]{index=2}
+A key challenge in this project was designing the interface so users could move smoothly between creating flashcards, studying them, and viewing results without disrupting the overall flow of the website. This required the different sections of the application to update dynamically while still remaining clear, organised, and easy to use.
 
-Another challenge was building the study workflow so that cards could flip, be marked as correct or incorrect, be removed from the queue, and keep the progress calculations accurate throughout the session. This required careful state handling so the card display, progress bar, counters, and final score all stayed in sync. :contentReference[oaicite:3]{index=3}
+Another challenge was building the study workflow so flashcards could flip, be marked as correct or incorrect, be removed after use, and keep progress calculations accurate throughout the session. This required careful state management to ensure the flashcard display, progress bar, counters, and final score stayed in sync.
 
-It was also important to make keyboard support work properly so the spacebar could flip cards in study mode without interfering with text inputs or modals. This improved accessibility and made the app feel more polished to use. :contentReference[oaicite:4]{index=4}
+It was also important to implement keyboard support properly, especially making the spacebar flip cards in study mode without interfering with text inputs or modal windows. This improved accessibility and made the application feel more polished and user-friendly.
 
+On the presentation side, I refined the interface to make it feel more modern and visually engaging while keeping the blue colour palette professional and appropriate for the assignment.
 On the presentation side, I refined the visual design to make the interface feel more polished and modern while keeping the blue colour palette professional and suitable for the assignment. This improved the overall presentation without changing the core functionality of the website. :contentReference[oaicite:5]{index=5}
