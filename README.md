@@ -90,4 +90,3 @@ Another challenge was building the study workflow so flashcards could flip, be m
 It was also important to implement keyboard support properly, especially making the spacebar flip cards in study mode without interfering with text inputs or modal windows. This improved accessibility and made the application feel more polished and user-friendly.
 
 On the presentation side, I refined the interface to make it feel more modern and visually engaging while keeping the blue colour palette professional and appropriate for the assignment.
-On the presentation side, I refined the visual design to make the interface feel more polished and modern while keeping the blue colour palette professional and suitable for the assignment. This improved the overall presentation without changing the core functionality of the website. :contentReference[oaicite:5]{index=5}
