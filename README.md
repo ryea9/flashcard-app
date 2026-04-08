@@ -36,7 +36,6 @@ Students often need an easier way to keep their revision content organised and t
 
 ## Main Features
 
-- Single-page flashcard interface
 - Create and save a flashcard set title and description
 - Add, view, edit, and delete flashcards
 - Dynamic updates without page reloads
@@ -51,7 +50,7 @@ Students often need an easier way to keep their revision content organised and t
 - MySQL-backed data storage
 - Express API with full CRUD functionality
 - Auto-save for flashcard set details
-- Polished UI with gradients, shadows, hover effects, and modals
+- UI with gradients, shadows, hover effects, and modals
 
 ## Folder Structure
 
