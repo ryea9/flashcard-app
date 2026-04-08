@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashify</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style-glass-palette.css?v=glass-v4" />
+</head>
+<body>
+  <div class="background-orbs" aria-hidden="true">
+    <span class="orb orb-pink"></span>
+    <span class="orb orb-blue"></span>
+    <span class="orb orb-cyan"></span>
+    <span class="orb orb-green"></span>
+  </div>
+  <div class="glass-noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-title">Flashify</div>
+  </header>
+
+  <main class="page-container">
+    <section id="setupSection">
+      <div class="setup-header">
+        <h1>Create a new flashcard set</h1>
+        <p class="section-subtitle">
+          Create cards, review them below, then start studying.
+        </p>
+      </div>
+
+      <div id="feedbackMessage" class="feedback-message" aria-live="polite"></div>
+
+      <section class="panel compact-panel">
+        <div class="panel-header">
+          <h2>Details</h2>
+        </div>
+
+        <div class="form-group">
+          <label for="setName">Title</label>
+          <input
+            type="text"
+            id="setName"
+            placeholder="Example: Biology"
+            maxlength="100"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="setDescription">Description</label>
+          <textarea
+            id="setDescription"
+            placeholder="Example: Flashcards about cells, DNA, photosynthesis, and body systems."
+            maxlength="300"
+          ></textarea>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Add a Card</h2>
+        </div>
+
+        <div class="entry-grid">
+          <div class="form-group">
+            <label for="question">Term</label>
+            <textarea
+              id="question"
+              placeholder="Example: What is photosynthesis?"
+              maxlength="200"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="answer">Definition</label>
+            <textarea
+              id="answer"
+              placeholder="Example: The process plants use to turn sunlight into energy."
+              maxlength="500"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="panel-actions">
+          <button type="button" id="addBtn" class="primary-btn">Add Card</button>
+        </div>
+      </section>
+
+      <section class="panel flashcards-section">
+        <div class="cards-header">
+          <h2 class="cards-title">Your Cards</h2>
+          <div class="progress-badge" id="setupProgress">0 cards</div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          No flashcards yet. Add your first card to get started.
+        </div>
+
+        <div id="flashcards-container" class="flashcards-list"></div>
+
+        <div class="start-study-wrapper">
+          <button type="button" id="startStudyBtn" class="primary-btn">Start Studying</button>
+        </div>
+      </section>
+    </section>
+
+    <section id="studySection" class="hidden-section">
+      <div class="study-top">
+        <button type="button" id="topBackBtn" class="top-back-btn hidden-section" aria-label="Back to edit">
+          <span class="back-arrow">&larr;</span>
+          <span>Back to Edit</span>
+        </button>
+
+        <h1 id="studySetTitle">Study Flashcards</h1>
+        <p id="studySetDescription" class="section-subtitle">
+          Flip each card and mark whether you got it right.
+        </p>
+      </div>
+
+      <div class="study-stats-row">
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <span id="cardCounter">0 / 0</span>
+      </div>
+
+      <div class="score-row">
+        <div class="score-pill">Correct: <span id="correctCount">0</span></div>
+        <div class="score-pill">Incorrect: <span id="incorrectCount">0</span></div>
+        <div class="score-pill">Remaining: <span id="remainingCount">0</span></div>
+      </div>
+
+      <section id="studyCardSection" class="study-main-card">
+        <div id="studyCard" class="study-card" tabindex="0" role="button" aria-label="Flashcard">
+          <div id="studyCardInner" class="study-card-inner">
+            <div class="study-card-face study-card-front">
+              <span class="study-side-label">Term</span>
+              <p id="studyFrontText" class="study-card-main-text">Question</p>
+            </div>
+
+            <div class="study-card-face study-card-back">
+              <span class="study-side-label">Definition</span>
+              <p id="studyBackText" class="study-card-main-text">Answer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p id="flipNote" class="flip-note">
+        Press Space to flip the card
+      </p>
+
+      <div id="answerActions" class="answer-actions">
+        <button type="button" id="wrongBtn" class="secondary-btn">Got it Wrong</button>
+        <button type="button" id="rightBtn" class="primary-btn">Got it Right</button>
+      </div>
+
+      <div id="studyCompletePanel" class="study-complete-panel hidden-section">
+        <h2>Study Complete</h2>
+        <p id="studySummaryText">You finished your flashcards.</p>
+
+        <div class="summary-grid">
+          <div class="summary-box">
+            <span class="summary-label">Total</span>
+            <span id="summaryTotal" class="summary-value">0</span>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">Correct</span>
+            <span id="summaryCorrect" class="summary-value">0</span>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">Incorrect</span>
+            <span id="summaryIncorrect" class="summary-value">0</span>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">Score</span>
+            <span id="summaryScore" class="summary-value">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="studyCompleteActions" class="study-actions hidden-section">
+        <button type="button" id="restartStudyBtn" class="primary-btn">Restart Study</button>
+        <button type="button" id="resultsBackBtn" class="secondary-btn">Back to Edit</button>
+      </div>
+    </section>
+
+    <div id="editModal" class="modal hidden-section" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="editModalTitle">Edit Card</h2>
+          <button type="button" id="closeModalBtn" class="modal-close">&times;</button>
+        </div>
+
+        <div class="form-group">
+          <label for="editQuestion">Term</label>
+          <textarea
+            id="editQuestion"
+            maxlength="200"
+            placeholder="Example: What is photosynthesis?"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editAnswer">Definition</label>
+          <textarea
+            id="editAnswer"
+            maxlength="500"
+            placeholder="Example: The process plants use to turn sunlight into energy."
+          ></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelEditBtn" class="secondary-btn">Cancel</button>
+          <button type="button" id="saveEditBtn" class="primary-btn">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="deleteModal" class="modal hidden-section" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+      <div class="modal-content delete-modal-content">
+        <div class="modal-header">
+          <h2 id="deleteModalTitle">Delete Card</h2>
+          <button type="button" id="closeDeleteModalBtn" class="modal-close">&times;</button>
+        </div>
+
+        <p class="delete-modal-text">Are you sure you want to delete this flashcard?</p>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelDeleteBtn" class="secondary-btn">Cancel</button>
+          <button type="button" id="confirmDeleteBtn" class="delete-confirm-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
