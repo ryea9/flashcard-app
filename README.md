@@ -1,6 +1,6 @@
 # Flashify: A Flashcard Learning Web Application
 
-Flashify is a single-page flashcard learning web application built for a university web development assignment. The app allows users to create a flashcard set, add terms and definitions, manage cards with edit and delete actions, and study them in an interactive review mode. The project demonstrates the use of HTML, CSS, JavaScript, Node.js, Express, and MySQL in one complete database-driven application.
+Flashify is a single-page flashcard learning web application that allows users to create a flashcard set, add terms and definitions, manage cards with edit and delete actions, and study them in an interactive review mode. The project demonstrates the use of HTML, CSS, JavaScript, Node.js, Express, and MySQL in one complete database-driven application.
 
 ## Problem This Website Solves
 
